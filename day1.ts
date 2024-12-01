@@ -1010,12 +1010,12 @@ lineDelimited.forEach((line) => {
 });
 
 const numberSort = (a: number, b: number) => a - b;
-const leftSorted = left.sort(numberSort);
-const rightSorted = right.sort(numberSort);
+left.sort(numberSort);
+right.sort(numberSort);
 
-const solutionOne = rightSorted
+const solutionOne = right
   .map((num, i) => {
-    return Math.abs(num - leftSorted[i]);
+    return Math.abs(num - left[i]);
   })
   .reduce((a, b) => a + b, 0);
 
@@ -1023,12 +1023,10 @@ console.log("solution one: ", solutionOne);
 
 // solution two
 
-let sum = 0;
-const leftNums = new Set(left);
+let solutionTwo = 0;
 
-leftNums.forEach((num) => {
-  const rightAmount = right.filter((rightNum) => rightNum === num).length;
-  sum += num * rightAmount;
+new Set(left).forEach((num) => {
+  solutionTwo += num * right.filter((rightNum) => rightNum === num).length;
 });
 
-console.log("solution two: ", sum);
+console.log("solution two: ", solutionTwo);
