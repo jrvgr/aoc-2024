@@ -1,4 +1,9 @@
 {
+  "fmt": {
+    "lineWidth": 800,
+        "indentWidth": 2,
+
+  }
   "imports": {
     "@std/assert": "jsr:@std/assert@1"
   }
